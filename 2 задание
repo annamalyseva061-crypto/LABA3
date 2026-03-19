@@ -1,0 +1,43 @@
+using System;
+
+namespace LogicExpressionsABC
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 3. Логические выражения с A, B и C";
+            
+            Console.Write("Введите значение А (true/false): ");
+            bool A = bool.Parse(Console.ReadLine());
+            
+            Console.Write("Введите значение B (true/false): ");
+            bool B = bool.Parse(Console.ReadLine());
+            
+            Console.Write("Введите значение C (true/false): ");
+            bool C = bool.Parse(Console.ReadLine());
+            
+            Console.WriteLine($"\nA = {A}, B = {B}, C = {C}\n");
+            
+            bool resultA = !(A || !B && C);
+            Console.WriteLine($"а) не ({A} или не {B} и {C}) = {resultA}");
+            
+            bool resultB = A && !(B && A || !C);
+            Console.WriteLine($"б) {A} и не ({B} и {A} или не {C}) = {resultB}");
+
+            bool resultC = !(!A || B && C);
+            Console.WriteLine($"в) не (не {A} или {B} и {C}) = {resultC}");
+            
+            bool resultD = !(A || !B && C) || C;
+            Console.WriteLine($"г) не ({A} или не {B} и {C}) или {C} = {resultD}");
+            
+            bool resultE = !(A && !B || C) && B;
+            Console.WriteLine($"д) не ({A} и н
+            bool resultF = !(!A || B && C) || A;
+            Console.WriteLine($"е) не (не {A} или {B} и {C}) или {A} = {resultF}");
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
