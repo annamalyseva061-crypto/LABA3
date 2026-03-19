@@ -1,0 +1,39 @@
+using System;
+
+namespace CompareSpeed
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 3. Сравнение скоростей";
+            
+            Console.Write("Введите скорость в км/ч: ");
+            double kmh = double.Parse(Console.ReadLine());
+            
+            Console.Write("Введите скорость в м/с: ");
+            double ms = double.Parse(Console.ReadLine());
+            
+            double kmhInMs = kmh * 1000 / 3600;
+            
+            Console.WriteLine($"\n{kmh} км/ч = {kmhInMs:F2} м/с");
+            Console.WriteLine($"{ms} м/с");
+            
+            if (kmhInMs < ms)
+            {
+                Console.WriteLine($"\nСкорость {kmh} км/ч меньше, чем {ms} м/с");
+            }
+            else if (kmhInMs > ms)
+            {
+                Console.WriteLine($"\nСкорость {kmh} км/ч больше, чем {ms} м/с");
+            }
+            else
+            {
+                Console.WriteLine($"\nСкорости равны");
+            }
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
