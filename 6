@@ -1,0 +1,35 @@
+using System;
+
+namespace DivisibilityConditions
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = " Условия кратности";
+            
+            Console.WriteLine("=== Часть 1 ===");
+            Console.Write("Введите целое число A: ");
+            int A = int.Parse(Console.ReadLine());
+            
+            bool resultA1 = (A % 2 == 0) || (A % 3 == 0);
+            Console.WriteLine($"а) число {A} кратно двум или трем: {resultA1}");
+            
+            bool resultB1 = (A % 3 != 0) && (A % 10 == 0);
+            Console.WriteLine($"б) число {A} не кратно трем и оканчивается нулем: {resultB1}");
+            
+            Console.WriteLine("\n=== Часть 2 ===");
+            Console.Write("Введите целое число N: ");
+            int N = int.Parse(Console.ReadLine());
+            
+            bool resultA2 = (N % 5 == 0) || (N % 7 == 0);
+            Console.WriteLine($"а) число {N} кратно пяти или семи: {resultA2}");
+            
+            bool resultB2 = (N % 4 == 0) && (N % 10 != 0);
+            Console.WriteLine($"б) число {N} кратно четырем и не оканчивается нулем: {resultB2}");
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
