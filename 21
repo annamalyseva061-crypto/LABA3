@@ -1,0 +1,73 @@
+using System;
+
+namespace CardRank
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 3. Достоинство карты";
+            
+            Console.WriteLine("Порядковые номера карт:");
+            Console.WriteLine("6 - шестерка");
+            Console.WriteLine("7 - семерка");
+            Console.WriteLine("8 - восьмерка");
+            Console.WriteLine("9 - девятка");
+            Console.WriteLine("10 - десятка");
+            Console.WriteLine("11 - валет");
+            Console.WriteLine("12 - дама");
+            Console.WriteLine("13 - король");
+            Console.WriteLine("14 - туз\n");
+            
+            Console.Write("Введите номер карты k (6-14): ");
+            int k = int.Parse(Console.ReadLine());
+            
+            if (k < 6 || k > 14)
+            {
+                Console.WriteLine("Ошибка: номер карты должен быть от 6 до 14");
+            }
+            else
+            {
+                string rank;
+                switch (k)
+                {
+                    case 6:
+                        rank = "шестерка";
+                        break;
+                    case 7:
+                        rank = "семерка";
+                        break;
+                    case 8:
+                        rank = "восьмерка";
+                        break;
+                    case 9:
+                        rank = "девятка";
+                        break;
+                    case 10:
+                        rank = "десятка";
+                        break;
+                    case 11:
+                        rank = "валет";
+                        break;
+                    case 12:
+                        rank = "дама";
+                        break;
+                    case 13:
+                        rank = "король";
+                        break;
+                    case 14:
+                        rank = "туз";
+                        break;
+                    default:
+                        rank = "неизвестно";
+                        break;
+                }
+                
+                Console.WriteLine($"\nКарта с номером {k} - это {rank}");
+            }
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
