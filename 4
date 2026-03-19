@@ -1,0 +1,50 @@
+using System;
+
+namespace ConditionalExpressions
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Условные выражения";
+            
+            Console.Write("Введите число x: ");
+            double x = double.Parse(Console.ReadLine());
+            
+            Console.Write("Введите число y: ");
+            double y = double.Parse(Console.ReadLine());
+            
+            Console.WriteLine($"\nx = {x}, y = {y}\n");
+            
+            bool resultA = x < 2 && y < 3;
+            Console.WriteLine($"а) {x} < 2 и {y} < 3 = {resultA}");
+            
+            bool resultB = !(x < 2);
+            Console.WriteLine($"б) неверно, что {x} < 2 = {resultB}");
+            
+            bool resultC = x < 1 || y < 2;
+            Console.WriteLine($"в) {x} < 1 или {y} < 2 = {resultC}");
+            
+            bool resultD = !(x < 0 && x < 5);
+            Console.WriteLine($"г) неверно, что ({x} < 0 и {x} < 5) = {resultD}");
+            
+            bool resultE = x < 0 && y > 5;
+            Console.WriteLine($"д) {x} < 0 и {y} > 5 = {resultE}");
+            
+            bool resultF = x > 10 && x < 20;
+            Console.WriteLine($"е) 10 < {x} < 20 = {resultF}");
+            
+            bool resultG = x > 3 || x < 1;
+            Console.WriteLine($"ж) {x} > 3 или {x} < 1 = {resultG}");
+            
+            bool resultH = (y > 0 && y < 4) && x < 5;
+            Console.WriteLine($"з) 0 < {y} < 4 и {x} < 5 = {resultH}");
+            
+            bool resultI = x > 3 && x < 10;
+            Console.WriteLine($"и) {x} > 3 и {x} < 10 = {resultI}");
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
