@@ -1,0 +1,59 @@
+using System;
+
+namespace TrafficLight
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 3. Светофор для пешеходов";
+            
+            Console.WriteLine("Режим работы светофора:");
+            Console.WriteLine("В начале каждого часа:");
+            Console.WriteLine("- 3 минуты зеленый");
+            Console.WriteLine("- 2 минуты красный");
+            Console.WriteLine("- 3 минуты зеленый");
+            Console.WriteLine("- 2 минуты красный");
+            Console.WriteLine("И так далее...\n");
+            
+            Console.Write("Введите время t (в минутах, прошедшее с начала часа): ");
+            double t = double.Parse(Console.ReadLine());
+            
+            if (t < 0 || t >= 60)
+            {
+                Console.WriteLine("Ошибка: время должно быть от 0 до 60 минут");
+            }
+            else
+            {
+                double phase = t % 5;
+                
+                if (phase < 3)
+                {
+                    Console.WriteLine($"\nВ момент времени {t} мин горит ЗЕЛЕНЫЙ сигнал");
+                }
+                else
+                {
+                    Console.WriteLine($"\nВ момент времени {t} мин горит КРАСНЫЙ сигнал");
+                }
+                
+                Console.WriteLine("\nДетализация:");
+                int fullCycles = (int)(t / 5);
+                double timeInCycle = t % 5;
+                Console.WriteLine($"Прошло полных циклов: {fullCycles}");
+                Console.WriteLine($"Время в текущем цикле: {timeInCycle:F2} мин");
+                
+                if (timeInCycle < 3)
+                {
+                    Console.WriteLine($"В текущем цикле: {timeInCycle:F2} мин зеленого сигнала");
+                }
+                else
+                {
+                    Console.WriteLine($"В текущем цикле: {timeInCycle:F2} мин (3 мин зеленого + {timeInCycle-3:F2} мин красного)");
+                }
+            }
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
