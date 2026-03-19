@@ -1,0 +1,46 @@
+using System;
+
+namespace MinMaxWithoutFullIf
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 3. Min/Max без полного условного оператора";
+            
+            Console.Write("Введите первое число: ");
+            double a = double.Parse(Console.ReadLine());
+            
+            Console.Write("Введите второе число: ");
+            double b = double.Parse(Console.ReadLine());
+            
+            Console.WriteLine($"\nЧисла: {a} и {b}\n");
+            
+            Console.WriteLine("а) Используя два неполных условных оператора:");
+            
+            double max = a;
+            if (b > max) max = b;
+            
+            double min = a;
+            if (b < min) min = b;
+            
+            Console.WriteLine($"Максимум: {max}");
+            Console.WriteLine($"Минимум: {min}");
+            
+            Console.WriteLine("\nб) Используя один неполный условный оператор:");
+            
+            double max2 = a > b ? a : b;
+            double min2 = a < b ? a : b;
+            
+            Console.WriteLine($"Максимум: {max2}");
+            Console.WriteLine($"Минимум: {min2}");
+            
+            Console.WriteLine("\nПроверка с Math.Max/Math.Min:");
+            Console.WriteLine($"Максимум: {Math.Max(a, b)}");
+            Console.WriteLine($"Минимум: {Math.Min(a, b)}");
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
