@@ -1,0 +1,46 @@
+using System;
+
+namespace MonthName
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 3. Название месяца";
+            
+            Console.WriteLine("С начала 1990 года прошло n месяцев и 2 дня");
+            
+            Console.Write("Введите количество месяцев n: ");
+            int n = int.Parse(Console.ReadLine());
+            
+            if (n < 0)
+            {
+                Console.WriteLine("Ошибка: количество месяцев не может быть отрицательным");
+            }
+            else
+            {
+                
+                int monthNumber = (1 + n) % 12;
+                if (monthNumber == 0) monthNumber = 12;
+                
+                string[] months = {
+                    "январь", "февраль", "март", "апрель", "май", "июнь",
+                    "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"
+                };
+                
+                Console.WriteLine($"\nПрошло {n} месяцев и 2 дня");
+                Console.WriteLine($"Текущий месяц: {months[monthNumber - 1]}");
+                Console.WriteLine($"Число: 2"); // так как прошло 2 дня с начала месяца
+                
+                int year = 1990 + (1 + n) / 12;
+                if ((1 + n) % 12 == 0) year--; // если точно в декабре, год не увеличивается до следующего
+                
+                Console.WriteLine($"Год: {year}");
+                Console.WriteLine($"Полная дата: 2 {months[monthNumber - 1]} {year} года");
+            }
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
