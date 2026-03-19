@@ -1,0 +1,41 @@
+using System;
+
+namespace CircleVsSquare
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = " Сравнение площади круга и квадрата";
+            
+            Console.Write("Введите радиус круга R: ");
+            double R = double.Parse(Console.ReadLine());
+            
+            Console.Write("Введите сторону квадрата a: ");
+            double a = double.Parse(Console.ReadLine());
+            
+            double circleArea = Math.PI * R * R;
+            
+            double squareArea = a * a;
+            
+            Console.WriteLine($"\nПлощадь круга (R={R}): {circleArea:F2}");
+            Console.WriteLine($"Площадь квадрата (a={a}): {squareArea:F2}");
+            
+            if (circleArea > squareArea)
+            {
+                Console.WriteLine($"\nПлощадь круга больше площади квадрата");
+            }
+            else if (circleArea < squareArea)
+            {
+                Console.WriteLine($"\nПлощадь квадрата больше площади круга");
+            }
+            else
+            {
+                Console.WriteLine($"\nПлощади равны");
+            }
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
