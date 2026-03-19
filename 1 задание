@@ -1,0 +1,46 @@
+using System;
+
+namespace LogicExpressionsAB
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 3. Логические выражения с A и B";
+            
+            Console.Write("Введите значение А (true/false): ");
+            bool A = bool.Parse(Console.ReadLine());
+            
+            Console.Write("Введите значение B (true/false): ");
+            bool B = bool.Parse(Console.ReadLine());
+            
+            Console.WriteLine($"\nA = {A}, B = {B}\n");
+            
+            bool resultA = !(!A && !B) && A;
+            Console.WriteLine($"а) не (не {A} и не {B}) и {A} = {resultA}");
+            
+            bool resultB = !(!A || !B) || A;
+            Console.WriteLine($"б) не (не {A} или не {B}) или {A} = {resultB}");
+            
+            bool resultC = !(!A || !B) && B;
+            Console.WriteLine($"в) не (не {A} или не {B}) и {B} = {resultC}");
+            
+            Console.WriteLine("\n=== Таблица истинности для выражения а) ===");
+            Console.WriteLine("A\tB\t!(!A && !B) && A");
+            Console.WriteLine("---------------------------------");
+            
+            bool[] values = { false, true };
+            foreach (bool a in values)
+            {
+                foreach (bool b in values)
+                {
+                    bool res = !(!a && !b) && a;
+                    Console.WriteLine($"{a}\t{b}\t{res}");
+                }
+            }
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
