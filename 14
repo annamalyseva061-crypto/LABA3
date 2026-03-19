@@ -1,0 +1,36 @@
+using System;
+
+namespace LastDigitCheck
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = " Проверка последней цифры";
+            
+            Console.Write("Введите натуральное число: ");
+            int number = int.Parse(Console.ReadLine());
+            
+            if (number <= 0)
+            {
+                Console.WriteLine("Ошибка: число должно быть натуральным (больше 0)");
+            }
+            else
+            {
+                int lastDigit = number % 10;
+                
+                bool isEvenLast = lastDigit % 2 == 0;
+                Console.WriteLine($"\nа) Число {number} заканчивается четной цифрой ({lastDigit}): {isEvenLast}");
+
+                bool isOddLast = lastDigit % 2 != 0;
+                Console.WriteLine($"б) Число {number} заканчивается нечетной цифрой ({lastDigit}): {isOddLast}");
+                
+                Console.WriteLine($"\nПоследняя цифра числа: {lastDigit}");
+                Console.WriteLine($"Она {(isEvenLast ? "четная" : "нечетная")}");
+            }
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
