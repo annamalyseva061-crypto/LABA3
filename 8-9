@@ -1,0 +1,46 @@
+using System;
+
+namespace CompareTwoNumbers
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = " Сравнение двух чисел";
+            
+            Console.Write("Введите первое число: ");
+            double num1 = double.Parse(Console.ReadLine());
+            
+            Console.Write("Введите второе число: ");
+            double num2 = double.Parse(Console.ReadLine());
+            
+            Console.WriteLine($"\nЧисла: {num1} и {num2}\n");
+            
+            // Задание 8
+            if (num1 > num2)
+            {
+                Console.WriteLine($"а) большее число: {num1}");
+                Console.WriteLine($"б) меньшее число: {num2}");
+            }
+            else if (num2 > num1)
+            {
+                Console.WriteLine($"а) большее число: {num2}");
+                Console.WriteLine($"б) меньшее число: {num1}");
+            }
+            else
+            {
+                Console.WriteLine("Числа равны");
+            }
+            
+            double max = Math.Max(num1, num2);
+            double min = Math.Min(num1, num2);
+            
+            Console.WriteLine($"\nЗадание 9 (с использованием Math.Max/Math.Min):");
+            Console.WriteLine($"Максимальное значение: {max}");
+            Console.WriteLine($"Минимальное значение: {min}");
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
