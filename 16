@@ -1,0 +1,57 @@
+using System;
+
+namespace DivisorsCheck
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title =  Проверка делителей";
+            
+            Console.Write("Введите число a: ");
+            int a = int.Parse(Console.ReadLine());
+            
+            Console.Write("Введите число b: ");
+            int b = int.Parse(Console.ReadLine());
+            
+            Console.WriteLine($"\nПроверка делимости чисел {a} и {b}\n");
+            
+            if (a == 0)
+            {
+                Console.WriteLine("На ноль делить нельзя!");
+            }
+            else
+            {
+                bool isADivisorOfB = (b % a == 0);
+                if (isADivisorOfB)
+                {
+                    Console.WriteLine($"а) {a} является делителем {b} ({b} / {a} = {b / a})");
+                }
+                else
+                {
+                    Console.WriteLine($"а) {a} НЕ является делителем {b}");
+                }
+            }
+            
+            if (b == 0)
+            {
+                Console.WriteLine("На ноль делить нельзя!");
+            }
+            else
+            {
+                bool isBDivisorOfA = (a % b == 0);
+                if (isBDivisorOfA)
+                {
+                    Console.WriteLine($"б) {b} является делителем {a} ({a} / {b} = {a / b})");
+                }
+                else
+                {
+                    Console.WriteLine($"б) {b} НЕ является делителем {a}");
+                }
+            }
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
