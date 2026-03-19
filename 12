@@ -1,0 +1,43 @@
+using System;
+
+namespace CompareDistance
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = " Сравнение километров и футов";
+            
+            const double footToMeters = 0.305;
+            const double kmToMeters = 1000;
+            
+            Console.Write("Введите расстояние в километрах: ");
+            double km = double.Parse(Console.ReadLine());
+            
+            Console.Write("Введите расстояние в футах: ");
+            double feet = double.Parse(Console.ReadLine());
+            
+            double kmInMeters = km * kmToMeters;
+            double feetInMeters = feet * footToMeters;
+            
+            Console.WriteLine($"\n{km} км = {kmInMeters} м");
+            Console.WriteLine($"{feet} футов = {feetInMeters:F2} м");
+            
+            if (kmInMeters < feetInMeters)
+            {
+                Console.WriteLine($"\n{km} км меньше, чем {feet} футов");
+            }
+            else if (kmInMeters > feetInMeters)
+            {
+                Console.WriteLine($"\n{km} км больше, чем {feet} футов");
+            }
+            else
+            {
+                Console.WriteLine($"\nРасстояния равны");
+            }
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
