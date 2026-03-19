@@ -1,0 +1,57 @@
+using System;
+
+namespace LogicExpressionsXY
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 3. Логические выражения с X и Y";
+            
+            Console.Write("Введите значение X (true/false): ");
+            bool X = bool.Parse(Console.ReadLine());
+            
+            Console.Write("Введите значение Y (true/false): ");
+            bool Y = bool.Parse(Console.ReadLine());
+            
+            Console.WriteLine($"\nX = {X}, Y = {Y}\n");
+            
+            bool resultA = (!(X || Y)) || (Y == X); // импликация: A→B эквивалентно !A || B
+            Console.WriteLine($"а) ({X} ∨ {Y}) → ({Y} ≡ {X}) = {resultA}");
+            
+            bool resultB = (X || Y) == (Y && X);
+            Console.WriteLine($"б) ({X} ∨ {Y}) ≡ ({Y} ∧ {X}) = {resultB}");
+            
+            bool implicationYtoX = !Y || X; // Y → X
+            bool resultC = (X && Y) || implicationYtoX;
+            Console.WriteLine($"в) ({X} ∧ {Y}) ∨ ({Y} → {X}) = {resultC}");
+            
+            bool resultD = (!(X == Y)) || Y;
+            Console.WriteLine($"г) ({X} ≡ {Y}) → {Y} = {resultD}");
+            
+            Console.Write("\nВведите значение Z (true/false): ");
+            bool Z = bool.Parse(Console.ReadLine());
+            
+            Console.WriteLine($"\nX = {X}, Y = {Y}, Z = {Z}\n");
+            
+            bool resultE = (!(X || Y)) || (Z == X);
+            Console.WriteLine($"д) ({X} ∨ {Y}) → ({Z} ≡ {X}) = {resultE}");
+            
+            bool equiv1 = X == (Z || Y);
+            bool impl1 = !X || Z; // X → Z
+            bool impl2 = !Y || X; // Y → X
+            bool resultF = equiv1 || (impl1 && impl2);
+            Console.WriteLine($"е) ({X} ≡ ({Z} ∨ {Y})) ∨ (({X}→ {Z}) ∧ ({Y} → {X})) = {resultF}");
+            
+            bool resultG = !Y || (Z == X);
+            Console.WriteLine($"ж) {Y} → ({Z} ≡ {X}) = {resultG}");
+            
+            bool impl3 = !Y || Z; // Y → Z
+            bool resultH = X == impl3;
+            Console.WriteLine($"з) {X} ≡ ({Y} → {Z}) = {resultH}");
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
