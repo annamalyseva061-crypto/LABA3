@@ -1,0 +1,47 @@
+using System;
+
+namespace DayOfWeek
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 3. Определение дня недели";
+            
+            Console.WriteLine("Дано: 1 января - понедельник\n");
+            
+            Console.Write("Введите номер дня в году (k) от 1 до 365: ");
+            int k = int.Parse(Console.ReadLine());
+            
+            if (k < 1 || k > 365)
+            {
+                Console.WriteLine("Ошибка: число должно быть от 1 до 365");
+            }
+            else
+            {
+                int dayOfWeekNum = (k - 1) % 7 + 1;
+                
+                string[] weekDays = { 
+                    "понедельник", "вторник", "среда", "четверг", 
+                    "пятница", "суббота", "воскресенье" 
+                };
+                
+                string dayName = weekDays[dayOfWeekNum - 1];
+                
+                Console.WriteLine($"\n{k}-й день года - это {dayName}");
+                
+                if (dayOfWeekNum == 6 || dayOfWeekNum == 7)
+                {
+                    Console.WriteLine("Это выходной день");
+                }
+                else
+                {
+                    Console.WriteLine("Это рабочий день");
+                }
+            }
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
