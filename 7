@@ -1,0 +1,35 @@
+using System;
+
+namespace SinOrCos
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = " Вычисление sin(x) или cos(x)";
+            
+            Console.Write("Введите значение x (в радианах): ");
+            double x = double.Parse(Console.ReadLine());
+            
+            double y;
+            if (x > 0)
+            {
+                y = Math.Sin(x);
+                Console.WriteLine($"x > 0, вычисляем sin({x})");
+            }
+            else
+            {
+                y = Math.Cos(x);
+                Console.WriteLine($"x <= 0, вычисляем cos({x})");
+            }
+            
+            Console.WriteLine($"Результат y = {y:F4}");
+
+            double xDegrees = x * 180 / Math.PI;
+            Console.WriteLine($"x в градусах: {xDegrees:F2}°");
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
