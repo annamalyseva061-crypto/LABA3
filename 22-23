@@ -1,0 +1,130 @@
+using System;
+
+namespace FullCardName
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 3. Полное название карты";
+            
+            Console.WriteLine("Номера мастей:");
+            Console.WriteLine("1 - пики");
+            Console.WriteLine("2 - трефы");
+            Console.WriteLine("3 - бубны");
+            Console.WriteLine("4 - червы\n");
+            
+            Console.WriteLine("Номера достоинств:");
+            Console.WriteLine("6 - шестерка");
+            Console.WriteLine("7 - семерка");
+            Console.WriteLine("8 - восьмерка");
+            Console.WriteLine("9 - девятка");
+            Console.WriteLine("10 - десятка");
+            Console.WriteLine("11 - валет");
+            Console.WriteLine("12 - дама");
+            Console.WriteLine("13 - король");
+            Console.WriteLine("14 - туз\n");
+            
+            Console.Write("Введите номер масти m (1-4): ");
+            int m = int.Parse(Console.ReadLine());
+            
+            Console.Write("Введите номер достоинства k (6-14): ");
+            int k = int.Parse(Console.ReadLine());
+            
+            if (m < 1 || m > 4)
+            {
+                Console.WriteLine("Ошибка: номер масти должен быть от 1 до 4");
+            }
+            else if (k < 6 || k > 14)
+            {
+                Console.WriteLine("Ошибка: номер достоинства должен быть от 6 до 14");
+            }
+            else
+            {
+                string suit;
+                switch (m)
+                {
+                    case 1:
+                        suit = "пик";
+                        break;
+                    case 2:
+                        suit = "треф";
+                        break;
+                    case 3:
+                        suit = "бубен";
+                        break;
+                    case 4:
+                        suit = "червей";
+                        break;
+                    default:
+                        suit = "";
+                        break;
+                }
+                
+                string rank;
+                string rankForDeclension; 
+                
+                switch (k)
+                {
+                    case 6:
+                        rank = "Шестерка";
+                        rankForDeclension = "шестерка";
+                        break;
+                    case 7:
+                        rank = "Семерка";
+                        rankForDeclension = "семерка";
+                        break;
+                    case 8:
+                        rank = "Восьмерка";
+                        rankForDeclension = "восьмерка";
+                        break;
+                    case 9:
+                        rank = "Девятка";
+                        rankForDeclension = "девятка";
+                        break;
+                    case 10:
+                        rank = "Десятка";
+                        rankForDeclension = "десятка";
+                        break;
+                    case 11:
+                        rank = "Валет";
+                        rankForDeclension = "валет";
+                        break;
+                    case 12:
+                        rank = "Дама";
+                        rankForDeclension = "дама";
+                        break;
+                    case 13:
+                        rank = "Король";
+                        rankForDeclension = "король";
+                        break;
+                    case 14:
+                        rank = "Туз";
+                        rankForDeclension = "туз";
+                        break;
+                    default:
+                        rank = "";
+                        rankForDeclension = "";
+                        break;
+                }
+                
+                string suitEnding;
+                if (k == 11 || k == 13 || k == 14)
+                {
+                    suitEnding = suit == "червей" ? "червей" : suit + "ей";
+                }
+                else
+                {
+                    suitEnding = suit == "пик" ? "пик" : 
+                                 suit == "треф" ? "треф" :
+                                 suit == "бубен" ? "бубен" : "червей";
+                }
+                
+                Console.WriteLine($"\n{rank} {suitEnding}");
+            }
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
